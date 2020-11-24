@@ -1,5 +1,5 @@
-const cards = [ 
-  ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'],
+const cards = [
+  ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions', 'Tech', 'Cats'],
   [
     {
       word: 'cry',
@@ -299,6 +299,106 @@ const cards = [
       image: 'img/laugh.jpg',
       audioSrc: 'audio/laugh.mp3'
     }
+  ],
+  [
+    {
+      word: 'hologram',
+      translation: 'голограмма',
+      image: 'img/hologram.jpg',
+      audioSrc: 'audio/hologram.mp3'
+    },
+    {
+      word: 'satellite',
+      translation: 'спутник',
+      image: 'img/satellite.jpg',
+      audioSrc: 'audio/satellite.mp3'
+    },
+    {
+      word: 'space-suite',
+      translation: 'скафандр',
+      image: 'img/space-suite.jpg',
+      audioSrc: 'audio/space-suite.mp3'
+    },
+    {
+      word: 'airplane',
+      translation: 'самолет',
+      image: 'img/airplane.jpg',
+      audioSrc: 'audio/airplane.mp3'
+    },
+    {
+      word: 'laser',
+      translation: 'лазер',
+      image: 'img/laser.jpg',
+      audioSrc: 'audio/laser.mp3'
+    },
+    {
+      word: 'robot',
+      translation: 'робот',
+      image: 'img/robot.jpg',
+      audioSrc: 'audio/robot.mp3'
+    },
+    {
+      word: 'smartphone',
+      translation: 'смартфон',
+      image: 'img/smartphone.jpg',
+      audioSrc: 'audio/smartphone.mp3'
+    },
+    {
+      word: 'computer',
+      translation: 'компьютер',
+      image: 'img/computer.jpg',
+      audioSrc: 'audio/computer.mp3'
+    }
+  ],
+  [
+    {
+      word: 'lynx',
+      translation: 'рысь',
+      image: 'img/lynx.jpg',
+      audioSrc: 'audio/lynx.mp3'
+    },
+    {
+      word: 'manul',
+      translation: 'манул',
+      image: 'img/manul.jpg',
+      audioSrc: 'audio/manul.mp3'
+    },
+    {
+      word: 'gepard',
+      translation: 'гепард',
+      image: 'img/gepard.jpg',
+      audioSrc: 'audio/gepard.mp3'
+    },
+    {
+      word: 'leopard',
+      translation: 'леопард',
+      image: 'img/leopard.jpg',
+      audioSrc: 'audio/leopard.mp3'
+    },
+    {
+      word: 'tiger',
+      translation: 'тигр',
+      image: 'img/tiger.jpg',
+      audioSrc: 'audio/tiger.mp3'
+    },
+    {
+      word: 'panther',
+      translation: 'пантера',
+      image: 'img/panther.jpg',
+      audioSrc: 'audio/panther.mp3'
+    },
+    {
+      word: 'puma',
+      translation: 'пума',
+      image: 'img/puma.jpg',
+      audioSrc: 'audio/puma.mp3'
+    },
+    {
+      word: 'serval',
+      translation: 'сервал',
+      image: 'img/serval.jpg',
+      audioSrc: 'audio/serval.mp3'
+    }
   ]
 ]
 
@@ -306,4 +406,4 @@ const cards = [
 
 
 
-export default cards;
+// export default cards;

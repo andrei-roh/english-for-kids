@@ -1,21 +1,22 @@
 //create menu
-var body = document.querySelector("body");
+var body = document.querySelector("body"),
 //create left menu
-var header = document.createElement("header");
-var menu = document.createElement("menu");
-var inputLeft = document.createElement("input");
-var nav_left = document.createElement("nav");
-var labelLeft = document.createElement("label");
-var h2_left = document.createElement("h2");
-var logo_header = document.createElement("div");
-var list_left = document.createElement("ul");
-var formList = document.createElement("li")
+header = document.createElement("header"),
+menu = document.createElement("menu"),
+inputLeft = document.createElement("input"),
+nav_left = document.createElement("nav"),
+labelLeft = document.createElement("label"),
+h2_left = document.createElement("h2"),
+logo_header = document.createElement("div"),
+list_left = document.createElement("ul"),
+formList = document.createElement("li"),
 //create switcher
-var switcher = document.createElement("switcher");
-var inputSwitch = document.createElement("input");
-var labelSwitch = document.createElement("label");
-var onoffswitch_inner = document.createElement("span");
-var onoffswitch_switch = document.createElement("span");
+switcher = document.createElement("switcher"),
+inputSwitch = document.createElement("input"),
+labelSwitch = document.createElement("label"),
+onoffswitch_inner = document.createElement("span"),
+onoffswitch_switch = document.createElement("span");
+
 
 //Heared properties
 header.id = "header";

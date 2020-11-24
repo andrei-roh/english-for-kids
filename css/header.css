@@ -1,3 +1,6 @@
+* {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
 /* Header */
 #header {
   width: 100%;
@@ -7,30 +10,28 @@
 
 /* Left menu */
 .nav_left {
-    width: 320px;
-    min-width: 320px;
+    width: 280px;
+    min-width: 280px;
     height: 100%;
     position: fixed;
     top: 0;
     bottom: 0;
     margin: 0;
-    left: -320px;
+    left: -280px;
     padding: 15px 20px;
     -webkit-transition: left 0.3s;
     -moz-transition: left 0.3s;
     transition: left 0.3s;
-    background: #4b475c;
     z-index: 2000;
 }
 .nav-toggle_left {
     position: absolute;
-    left: 320px;
-    top: 0.5em;
-    padding: 0.5em;
+    left: 280px;
+    padding-left: 0.25em;
     background: inherit;
     color: white;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 2em;
     line-height: 1;
     z-index: 2001;
     -webkit-transition: color .25s ease-in-out;
@@ -41,11 +42,12 @@
 .nav-toggle_left:after {
     content: '\2630';
     text-decoration: none;
+    color: #4b475c;
 }
 
 /*text color on hover*/
 .nav-toggle_left:hover {
-    color: black;
+    color: white;
 }
 
 /*Hidden checkbox*/
@@ -55,15 +57,29 @@
 }
 /*if (panel open){.nav change}*/
 [id='nav-toggle_left']:checked ~ .nav_left {
+    background: #4b475c;
     left: 0;
+    padding-left: 0px;
     box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
     -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
     -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
     overflow-y: auto;
 }
+@media only screen and (min-width: 768px){
+  [id='nav-toggle_left']:checked ~ .nav_left {
+      background: #4b475c;
+      left: 0;
+      padding-left: 50px;
+      box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+      -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+      -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+      overflow-y: auto;
+  }
+}
 /*MULTIPLICATION X*/
-[id='nav-toggle_left']:checked ~ .nav_left > .nav-toggle:after {
+[id='nav-toggle_left']:checked ~ .nav_left > .nav-toggle_left:after {
     content: '\2715';
+    color: white;
 }
 /*плавное появление заголовка (логотипа) при раскрытии панели */
 [id='nav-toggle_left']:checked ~ .nav_left h2 {
@@ -104,13 +120,18 @@ ul {
     transform: translateX(0);
 }
 .logo_header {
+  padding-top: 1em;
   color: white;
 }
 
 /* Switcher */
 .onoffswitch {
-    position: relative; width: 155px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    position: relative;
+    top: 0.5em;
+    width: 114px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
 }
 .onoffswitch-checkbox {
     display: none;
@@ -137,7 +158,7 @@ ul {
     line-height: 30px;
     font-size: 14px;
     color: white;
-    font-family: Trebuchet, Arial, sans-serif;
+    /* font-family: Trebuchet, Arial, sans-serif; */
     font-weight: bold;
     box-sizing: border-box;
 }
@@ -162,7 +183,7 @@ ul {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 101px;
+    right: 60px;
     border: 2px solid #999999;
     border-radius: 0px;
     transition: all 0.3s ease-in 0s;
