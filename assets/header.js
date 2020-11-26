@@ -9,7 +9,6 @@ labelLeft = document.createElement("label"),
 h2_left = document.createElement("h2"),
 logo_header = document.createElement("div"),
 list_left = document.createElement("ul"),
-formList = document.createElement("li"),
 //create switcher
 switcher = document.createElement("switcher"),
 inputSwitch = document.createElement("input"),
@@ -31,6 +30,7 @@ labelLeft.onclick;
 h2_left.classList.add("logo");
 logo_header.classList.add("logo_header");
 logo_header.innerHTML = "ENGLISH FOR KIDS";
+list_left.classList.add("header_menu");
 //Switcher parts properties
 switcher.classList.add("onoffswitch");
 inputSwitch.id = "myonoffswitch";
@@ -52,10 +52,51 @@ nav_left.appendChild(labelLeft);
 nav_left.appendChild(h2_left);
 h2_left.appendChild(logo_header);
 h2_left.appendChild(list_left);
-list_left.appendChild(formList);
+for (let i = 0; i < 9; i++) {
+  var formList = document.createElement("a");
+  if (i === 0) {
+    formList.id = i + 10;
+    formList.href = "#";
+    formList.classList.add("header_item");
+    formList.classList.add("active");
+    formList.innerHTML = `Main Page`;
+  }
+  else {
+    formList.id = i + 10;
+    formList.href = "#/cards";
+    formList.classList.add("header_item");
+    formList.innerHTML = `${cards[0][i - 1]}`;
+  }
+  list_left.appendChild(formList);
+}
 //Add switcher in document
 header.appendChild(switcher);
 switcher.appendChild(inputSwitch);
 switcher.appendChild(labelSwitch);
 labelSwitch.appendChild(onoffswitch_inner);
 labelSwitch.appendChild(onoffswitch_switch);
+
+//remove class "active" from all menu elements
+function removeActiveClass () {
+  for (let k = 10; k < 19; k++){
+    document.getElementById(`${k}`).classList.remove("active")
+  }
+}
+
+document.getElementById("10").addEventListener('click', () => {
+  removeActiveClass ()
+  document.getElementById(`${"10"}`).classList.add("active")
+  for (let i = 0; i < 8; i++) {
+    document.getElementById(`${i}`).innerHTML = `<img src='assets/${cards[i + 1][randomInteger(0, 6)].image}' alt='${cards[0][i]}'> ${cards[0][i]}`;
+  };
+});
+
+for (let j = 11; j < 19; j++) {
+  document.getElementById(j).addEventListener('click', () => {
+    removeActiveClass ()
+    document.getElementById(`${j}`).classList.add("active")
+    for (let i = 0; i < 8; i++) {
+      document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j - 10][i].image}' alt='${cards[j - 10][i]}'> ${cards[j - 10][i].word}`;
+    };
+  });
+}

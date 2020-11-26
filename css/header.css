@@ -123,6 +123,25 @@ ul {
   padding-top: 1em;
   color: white;
 }
+.header_menu {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0px;
+}
+.header_item {
+  padding: 10px 0;
+  font-size: 22px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 10px;
+  margin: 0 0 0 60px;
+  color: #fff;
+  min-width: 145px;
+  text-align: left;
+}
+.header_item.active {
+  text-decoration: underline;
+}
 
 /* Switcher */
 .onoffswitch {

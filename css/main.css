@@ -31,8 +31,8 @@
 .main_card img {
   width: 140px;
   height: 140px;
-  border-radius: 50%;
-  border: 10px solid #fff;
+  /* border-radius: 50%; */
+  /* border: 10px solid #fff; */
   object-fit: cover;
   margin: 30px auto;
 }
