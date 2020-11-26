@@ -87,7 +87,7 @@ document.getElementById("10").addEventListener('click', () => {
   removeActiveClass ()
   document.getElementById(`${"10"}`).classList.add("active")
   for (let i = 0; i < 8; i++) {
-    document.getElementById(`${i}`).innerHTML = `<img src='assets/${cards[i + 1][randomInteger(0, 6)].image}' alt='${cards[0][i]}'> ${cards[0][i]}`;
+    document.getElementById(`${i}`).innerHTML = `<img src='assets/${cards[i + 1][randomInteger(0, 6)].image}'> ${cards[0][i]}`;
   };
 });
 
@@ -96,7 +96,7 @@ for (let j = 11; j < 19; j++) {
     removeActiveClass ()
     document.getElementById(`${j}`).classList.add("active")
     for (let i = 0; i < 8; i++) {
-      document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j - 10][i].image}' alt='${cards[j - 10][i]}'> ${cards[j - 10][i].word}`;
+      document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j - 10][i].image}'> ${cards[j - 10][i].word}`;
     };
   });
 }
