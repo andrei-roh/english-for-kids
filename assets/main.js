@@ -1,7 +1,6 @@
 let numberOfStack;
 
 const conditions = {
-  soundSwitcher: false,
   cardsStack: false,
 }
 
@@ -33,13 +32,14 @@ document.body.appendChild(main);
 for (let j = 0; j < 8; j++) {
   document.getElementById(j).addEventListener('click', () => {
     if (conditions.cardsStack == true) {
-      console.log(numberOfStack)
       soundHandler(`assets/${cards[numberOfStack + 1][j].audioSrc}`);
     }
     if (conditions.cardsStack == false) {
+      removeActiveClass ()
+      document.getElementById(`${j + 11}`).classList.add("active");
       numberOfStack = j;
       for (let i = 0; i < 8; i++) {
-        document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j + 1][i].image}'>${cards[j + 1][i].word}`;
+        document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j + 1][i].image}'><div class='card_bottom'><div class="card_name">${cards[j + 1][i].word}</div><a class='rotate'></a></div>`;
       };
       conditions.cardsStack = true;
     }

@@ -82,7 +82,7 @@ function removeActiveClass () {
     document.getElementById(`${k}`).classList.remove("active")
   }
 }
-
+//menu point Main Page
 document.getElementById("10").addEventListener('click', () => {
   removeActiveClass ()
   document.getElementById(`${"10"}`).classList.add("active")
@@ -91,13 +91,13 @@ document.getElementById("10").addEventListener('click', () => {
   };
   conditions.cardsStack = false;
 });
-
+//Other menu points
 for (let j = 11; j < 19; j++) {
   document.getElementById(j).addEventListener('click', () => {
     removeActiveClass ()
     document.getElementById(`${j}`).classList.add("active")
     for (let i = 0; i < 8; i++) {
-      document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j - 10][i].image}'> ${cards[j - 10][i].word}`;
+      document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j - 10][i].image}'><div class='card_bottom'>${cards[j - 10][i].word}<a class='rotate'></a><div>`;
     };
     conditions.cardsStack = true;
     numberOfStack = j - 11;
