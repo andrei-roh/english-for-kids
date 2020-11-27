@@ -1,5 +1,8 @@
+let numberOfStack;
+
 const conditions = {
   soundSwitcher: false,
+  cardsStack: false,
 }
 
 //function of reading sounds
@@ -27,16 +30,18 @@ for (let i = 0; i < 8; i++) {
 
 document.body.appendChild(main);
 
-//change cards
 for (let j = 0; j < 8; j++) {
   document.getElementById(j).addEventListener('click', () => {
-    if (conditions.soundSwitcher) {
-      soundHandler(`assets/${cards[j + 1][j].audioSrc}`);
+    if (conditions.cardsStack == true) {
+      console.log(numberOfStack)
+      soundHandler(`assets/${cards[numberOfStack + 1][j].audioSrc}`);
     }
-    for (let i = 0; i < 8; i++) {
-      document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j + 1][i].image}'>${cards[j + 1][i].word}`;
-    };
-    conditions.soundSwitcher = !conditions.soundSwitcher;
-    conditions.cardsStack = !conditions.cardsStack;
+    if (conditions.cardsStack == false) {
+      numberOfStack = j;
+      for (let i = 0; i < 8; i++) {
+        document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j + 1][i].image}'>${cards[j + 1][i].word}`;
+      };
+      conditions.cardsStack = true;
+    }
   });
 }

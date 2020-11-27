@@ -89,6 +89,7 @@ document.getElementById("10").addEventListener('click', () => {
   for (let i = 0; i < 8; i++) {
     document.getElementById(`${i}`).innerHTML = `<img src='assets/${cards[i + 1][randomInteger(0, 6)].image}'> ${cards[0][i]}`;
   };
+  conditions.cardsStack = false;
 });
 
 for (let j = 11; j < 19; j++) {
@@ -98,5 +99,7 @@ for (let j = 11; j < 19; j++) {
     for (let i = 0; i < 8; i++) {
       document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j - 10][i].image}'> ${cards[j - 10][i].word}`;
     };
+    conditions.cardsStack = true;
+    numberOfStack = j - 11;
   });
 }
