@@ -97,7 +97,7 @@ for (let j = 11; j < 19; j++) {
     removeActiveClass ()
     document.getElementById(`${j}`).classList.add("active")
     for (let i = 0; i < 8; i++) {
-      document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j - 10][i].image}'><div class='card_bottom'>${cards[j - 10][i].word}<a class='rotate'></a><div>`;
+      document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j - 10][i].image}'><div class='card_bottom'><div class="card_name">${cards[j - 10][i].word}</div><a class='rotate'></a></div>`;
     };
     conditions.cardsStack = true;
     numberOfStack = j - 11;

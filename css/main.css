@@ -39,23 +39,89 @@
 .card_bottom {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 .card_name {
-  padding-left: 120px;
+  /* padding-left: 120px; */
 }
 .rotate {
-  /* position: absolute; */
+  position: absolute;
   width: 50px;
   height: 50px;
   background-image: url(../assets/img/rotate.svg);
   background-size: 32px;
   background-repeat: no-repeat;
   background-position: center 5px;
-  /* bottom: 5px;
-  right: 5px; */
+  /* bottom: 5px; */
+  right: 0px;
   -webkit-transition: .3s;
   transition: .3s;
   /* -webkit-filter: grayscale(1);
   filter: grayscale(1); */
+}
+
+/* Flip Box */
+.flip_box {
+  background-color: transparent;
+  /* width: 300px;
+  height: 200px; */
+  /* border: 1px solid #f1f1f1; */
+  perspective: 1000px;
+  width: 300px;
+  height: 280px;
+  /* border-radius: 5px; */
+  /* box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12); */
+  color: #212529;
+  display: flex;
+  flex-direction: column;
+  /* font-family: Roboto; */
+  font-size: 24px;
+  /* line-height: 36px; */
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  /* background: -webkit-gradient(linear,left top,left bottom,from(#3b3749),color-stop(40%,#4b475c),color-stop(40%,#fff),to(#fff));
+  background: linear-gradient(180deg,#3b3749,#4b475c 40%,#fff 0,#fff); */
+  margin: 20px 25px;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.flip_box_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip_box:hover .flip_box_inner {
+  transform: rotateY(180deg);
+}
+
+.flip_box_front, .flip_box_back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip_box_front {
+  /* background-color: #bbb; */
+  color: black;
+  border-radius: 5px;
+  /* border: solid 1px black */
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.flip_box_back {
+  /* background-color: #555; */
+  color: black;
+  transform: rotateY(180deg);
+  border-radius: 5px;
+  /* border: solid 1px black */
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }

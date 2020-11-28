@@ -39,7 +39,20 @@ for (let j = 0; j < 8; j++) {
       document.getElementById(`${j + 11}`).classList.add("active");
       numberOfStack = j;
       for (let i = 0; i < 8; i++) {
-        document.getElementById(`${i}`).innerHTML = `<img style='width: 100%; height: 240px; margin: 0px;' src='assets/${cards[j + 1][i].image}'><div class='card_bottom'><div class="card_name">${cards[j + 1][i].word}</div><a class='rotate'></a></div>`;
+        document.getElementById(`${i}`).classList.remove("main_card")
+        document.getElementById(`${i}`).innerHTML = `
+        <div class="flip_box">
+          <div class="flip_box_inner">
+            <div class="flip_box_front">
+              <img style='width: 100%; height: 240px; margin: 0px' src='assets/${cards[j + 1][i].image}'>
+              <div class='card_bottom'><div class="card_name">${cards[j + 1][i].word}</div><a class='rotate'></a></div>
+            </div>
+            <div class="flip_box_back">
+              <img style='width: 100%; height: 240px; margin: 0px' src='assets/${cards[j + 1][i].image}'>
+              <div class='card_bottom'><div class="card_name">${cards[j + 1][i].translation}</div>
+            </div>
+          </div>
+        </div>`;
       };
       conditions.cardsStack = true;
     }
