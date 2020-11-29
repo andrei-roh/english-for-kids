@@ -1,4 +1,5 @@
-import cards from './cards.js'
+import cards from './cards.js';
+import conditions from './conditions.js';
 
 // HEADER
 //create menu
@@ -78,6 +79,11 @@ switcher.appendChild(inputSwitch);
 switcher.appendChild(labelSwitch);
 labelSwitch.appendChild(onoffswitch_inner);
 labelSwitch.appendChild(onoffswitch_switch);
+
+export function randomInteger(min, max) {
+  let randomNumber = min + Math.random() * (max - min + 1);
+  return Math.abs(Math.round(randomNumber));
+ }
 
 //remove class "active" from all menu elements
 export function removeActiveClass () {

@@ -1,12 +1,10 @@
 //Main
-import cards from './cards.js'
-import {removeActiveClass} from './header.js'
+import cards from './cards.js';
+import {removeActiveClass} from './header.js';
+import {randomInteger} from './header.js';
+import conditions from './conditions.js';
 
 let numberOfStack;
-
-const conditions = {
-  cardsStack: false,
-}
 
 //function of reading sounds
 function soundHandler(soundSource) {
@@ -18,10 +16,6 @@ function soundHandler(soundSource) {
 //create main element
 var main = document.createElement("main");
 for (let i = 0; i < 8; i++) {
-  function randomInteger(min, max) {
-    let randomNumber = min + Math.random() * (max - min + 1);
-    return Math.abs(Math.round(randomNumber));
-  }
   var mainElement = document.createElement("a");
   main.id = "main";
   mainElement.id = i;
@@ -48,11 +42,11 @@ for (let j = 0; j < 8; j++) {
         <div class="flip_box">
           <div class="flip_box_inner">
             <div class="flip_box_front">
-              <img style='width: 100%; height: 240px; margin: 0px' src='assets/${cards[j + 1][i].image}'>
+              <img style='width: 100%; height: 220px; margin: 0px' src='assets/${cards[j + 1][i].image}'>
               <div class='card_bottom'><div class="card_name">${cards[j + 1][i].word}</div><a class='rotate'></a></div>
             </div>
             <div class="flip_box_back">
-              <img style='width: 100%; height: 240px; margin: 0px' src='assets/${cards[j + 1][i].image}'>
+              <img style='width: 100%; height: 220px; margin: 0px' src='assets/${cards[j + 1][i].image}'>
               <div class='card_bottom'><div class="card_name">${cards[j + 1][i].translation}</div>
             </div>
           </div>
