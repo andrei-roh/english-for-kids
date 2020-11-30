@@ -41,9 +41,6 @@
   flex-direction: row;
   justify-content: center;
 }
-.card_name {
-  /* padding-left: 120px; */
-}
 .rotate {
   position: absolute;
   width: 50px;
@@ -56,8 +53,7 @@
   right: 0px;
   -webkit-transition: .3s;
   transition: .3s;
-  /* -webkit-filter: grayscale(1);
-  filter: grayscale(1); */
+  /* filter: grayscale(1); */
 }
 
 /* Flip Box */
@@ -84,7 +80,6 @@
   background: linear-gradient(180deg,#3b3749,#4b475c 40%,#fff 0,#fff); */
   margin: 20px 25px;
   cursor: pointer;
-  -webkit-transition: .3s;
   transition: .3s;
 }
 
@@ -95,10 +90,6 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-}
-
-.flip_box:hover .flip_box_inner {
-  transform: rotateY(180deg);
 }
 
 .flip_box_front, .flip_box_back {

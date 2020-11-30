@@ -1,4 +1,6 @@
 // import _ from 'lodash';
+export let numberOfStack = 0;
+
 import './css/header.css';
 import './css/main.css';
 import cards from './assets/cards.js';
