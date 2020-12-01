@@ -30,7 +30,7 @@
 }
 
 .main_card:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,.4);
+  box-shadow: 0 10px 20px rgba(0,0,0,.4);
 }
 
 .main_card img {
@@ -99,6 +99,10 @@
   transform-style: preserve-3d;
 }
 
+.flip_box_inner:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,.4);
+}
+
 .flip_box_front, .flip_box_back {
   position: absolute;
   width: 100%;
@@ -122,4 +126,28 @@
   border-radius: 5px;
   /* border: solid 1px black */
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+/* Play Game */
+.div_for_game_button {
+  width: 100%;
+  display: none;
+  justify-content: center;
+}
+
+.start_game_button {
+  padding: 5px 15px;
+  font-size: 22px;
+  margin: 20px auto;
+  height: 65px;
+  background: #9b806c;
+  color: #fff;
+  border-radius: 10px;
+  outline: 0!important;
+  border-width: 0px;
+  transition: .3s;
+}
+
+.start_game_button:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,.4);
 }

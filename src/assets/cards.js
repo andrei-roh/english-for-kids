@@ -176,10 +176,10 @@ const cards = [
       audioSrc: 'audio/giraffe.mp3'
     },
     {
-      word: 'lion',
-      translation: 'лев',
-      image: 'img/lion.jpg',
-      audioSrc: 'audio/lion.mp3'
+      word: 'bear',
+      translation: 'медведь',
+      image: 'img/bear.jpg',
+      audioSrc: 'audio/bear.mp3'
     },
     {
       word: 'mouse',
@@ -314,10 +314,10 @@ const cards = [
       audioSrc: 'audio/satellite.mp3'
     },
     {
-      word: 'space-suite',
-      translation: 'скафандр',
-      image: 'img/space-suite.jpg',
-      audioSrc: 'audio/space-suite.mp3'
+      word: 'train',
+      translation: 'поезд',
+      image: 'img/train.jpg',
+      audioSrc: 'audio/train.mp3'
     },
     {
       word: 'airplane',
@@ -338,10 +338,10 @@ const cards = [
       audioSrc: 'audio/robot.mp3'
     },
     {
-      word: 'smartphone',
+      word: 'phone',
       translation: 'смартфон',
       image: 'img/smartphone.jpg',
-      audioSrc: 'audio/smartphone.mp3'
+      audioSrc: 'audio/phone.mp3'
     },
     {
       word: 'computer',
@@ -358,16 +358,16 @@ const cards = [
       audioSrc: 'audio/lynx.mp3'
     },
     {
-      word: 'manul',
-      translation: 'манул',
-      image: 'img/manul.jpg',
-      audioSrc: 'audio/manul.mp3'
+      word: 'wildcat',
+      translation: 'лесной кот',
+      image: 'img/wildcat.jpg',
+      audioSrc: 'audio/wildcat.mp3'
     },
     {
-      word: 'gepard',
-      translation: 'гепард',
-      image: 'img/gepard.jpg',
-      audioSrc: 'audio/gepard.mp3'
+      word: 'jaguar',
+      translation: 'ягуар',
+      image: 'img/jaguar.jpg',
+      audioSrc: 'audio/jaguar.mp3'
     },
     {
       word: 'leopard',
@@ -394,11 +394,11 @@ const cards = [
       audioSrc: 'audio/puma.mp3'
     },
     {
-      word: 'serval',
-      translation: 'сервал',
-      image: 'img/serval.jpg',
-      audioSrc: 'audio/serval.mp3'
-    }
+      word: 'lion',
+      translation: 'лев',
+      image: 'img/lion.jpg',
+      audioSrc: 'audio/lion.mp3'
+    },
   ]
 ]
 
