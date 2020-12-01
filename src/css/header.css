@@ -1,6 +1,7 @@
 * {
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
+
 /* Header */
 #header {
   width: 100%;
@@ -18,10 +19,12 @@
     bottom: 0;
     margin: 0;
     left: -280px;
-    padding: 15px 20px;
+    padding: 15px 22px;
     transition: left 0.3s;
     z-index: 2000;
+    background: #4b475c;
 }
+
 .nav-toggle_left {
     position: absolute;
     left: 280px;
@@ -39,7 +42,7 @@
 .nav-toggle_left:after {
     content: '\2630';
     text-decoration: none;
-    color: #4b475c;
+    color: #FFFFFF;
 }
 
 /*text color on hover*/
@@ -52,37 +55,39 @@
     position: absolute;
     display: none;
 }
-/*if (panel open){.nav change}*/
+
 [id='nav-toggle_left']:checked ~ .nav_left {
-    background: #4b475c;
     left: 0;
     padding-left: 0px;
     box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
     overflow-y: auto;
 }
+
 @media only screen and (min-width: 768px){
   [id='nav-toggle_left']:checked ~ .nav_left {
-      background: #4b475c;
       left: 0;
       padding-left: 50px;
       box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
       overflow-y: auto;
   }
 }
+
 /*MULTIPLICATION X*/
 [id='nav-toggle_left']:checked ~ .nav_left > .nav-toggle_left:after {
     content: '\2715';
     color: #FFFFFF;
 }
-/*плавное появление заголовка (логотипа) при раскрытии панели */
+
 [id='nav-toggle_left']:checked ~ .nav_left h2 {
     opacity: 1;
     transform: scale(1, 1);
 }
+
 /*menu style*/
 ul {
   list-style: none;
 }
+
 .nav_left > ul {
     display: block;
     margin: 0;
@@ -96,30 +101,35 @@ ul {
     transform: translateX(-50%);
     transition: opacity .5s .1s, transform .5s .1s;
 }
+
 [id='nav-toggle_left']:checked ~ .nav_left > ul > li {
     opacity: 1;
     transform: translateX(0);
 }
+
 .logo_header {
   padding-top: 1em;
   color: #FFFFFF;
 }
+
 .header_menu {
   display: flex;
   flex-direction: column;
   padding-left: 0px;
 }
+
 .header_item {
   padding: 10px 0;
   font-size: 22px;
   cursor: pointer;
   text-decoration: none;
   padding: 10px;
-  margin: 0 0 0 60px;
+  /* margin: 0 0 0 60px; */
   color: #fff;
   min-width: 145px;
   text-align: left;
 }
+
 .header_item.active {
   text-decoration: underline;
 }
@@ -130,9 +140,11 @@ ul {
   top: 0.5em;
   width: 114px;
 }
+
 .onoffswitch-checkbox {
   display: none;
 }
+
 .onoffswitch-label {
   display: block;
   overflow: hidden;
@@ -140,12 +152,14 @@ ul {
   border: 2px solid #999999;
   border-radius: 0px;
 }
+
 .onoffswitch-inner {
   display: block;
   width: 200%;
   margin-left: -100%;
   transition: margin 0.3s ease-in 0s;
 }
+
 .onoffswitch-inner:before, .onoffswitch-inner:after {
   display: block;
   float: left;
@@ -155,16 +169,17 @@ ul {
   line-height: 30px;
   font-size: 14px;
   color: #FFFFFF;
-  /* font-family: Trebuchet, Arial, sans-serif; */
   font-weight: bold;
   box-sizing: border-box;
 }
+
 .onoffswitch-inner:before {
   content: "PLAY";
   padding-left: 10px;
   background-color: #9b806c;
   color: #FFFFFF;
 }
+
 .onoffswitch-inner:after {
   content: "TRAIN";
   padding-right: 10px;
@@ -172,6 +187,7 @@ ul {
   color: #FFFFFF;
   text-align: right;
 }
+
 .onoffswitch-switch {
   display: block;
   width: 46px;
@@ -185,9 +201,11 @@ ul {
   border-radius: 0px;
   transition: all 0.3s ease-in 0s;
 }
+
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
   margin-left: 0;
 }
+
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
 }

@@ -49,6 +49,7 @@ for (let j = 0; j < 8; j++) {
       document.getElementById(`${j + 11}`).classList.add("active");
       numberOfStack = j;
       for (let i = 0; i < 8; i++) {
+				document.getElementById(`${i}`).style.background = "none";
         document.getElementById(`${i}`).classList.remove("main_card")
         document.getElementById(`${i}`).innerHTML = `
         <div class="flip_box">
