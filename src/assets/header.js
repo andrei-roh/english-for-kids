@@ -164,7 +164,7 @@ function formOtherMenu() {
           <div id='${i + 20}' class='flip_box_inner'>
             <div class='flip_box_front'>
               <img id='${i + 40}' style='width: 100%; height: 220px; margin: 0px' src='assets/${cards[j - 10][i].image}'>
-              <div class='card_bottom'><div class='card_name'>${cards[j - 10][i].word}</div><a id='${i + 30}' class='rotate'></a></div>
+              <div id='${i + 50}' class='card_bottom'><div class='card_name'>${cards[j - 10][i].word}</div><a id='${i + 30}' class='rotate'></a></div>
             </div>
             <div class='flip_box_back'>
               <img style='width: 100%; height: 220px; margin: 0px' src='assets/${cards[j - 10][i].image}'>

@@ -2,8 +2,18 @@
 import cards from './cards.js';
 import {removeActiveClass} from './header.js';
 import {randomInteger} from './header.js';
+import {showStartButton} from './header.js';
 import numberOfStack from '../index.js';
 import conditions from './conditions.js';
+
+//function popup
+function PopUpShow(){
+	popUp.style.display = 'flex';
+}
+function allHide() {
+	main.style.display = 'none';
+	header.style.display = 'none';
+}
 
 //function of reading sounds
 function soundHandler(soundSource) {
@@ -25,7 +35,7 @@ for (let i = 0; i < 8; i++) {
 };
 
 document.body.appendChild(main);
-
+//Create elements
 for (let j = 0; j < 8; j++) {
   document.getElementById(j).addEventListener('click', () => {
 		if (conditions.cardsStack == true) {
@@ -40,7 +50,7 @@ for (let j = 0; j < 8; j++) {
 					document.getElementById(`${j + 30}`).style.opacity = '1';
 				});
 			};
-			if (event.target === document.getElementById(`${j + 40}`)) {
+			if (event.target === document.getElementById(`${j + 40}`) && conditions.switchTestPlay == false) {
 				soundHandler(`assets/${cards[numberOfStack + 1][j].audioSrc}`);
 			}
 		}
@@ -56,7 +66,7 @@ for (let j = 0; j < 8; j++) {
           <div id='${i + 20}' class='flip_box_inner'>
             <div class='flip_box_front'>
               <img id='${i + 40}' style='width: 100%; height: 220px; margin: 0px' src='assets/${cards[j + 1][i].image}'>
-              <div class='card_bottom'><div class='card_name'>${cards[j + 1][i].word}</div><a id='${i + 30}' class='rotate'></a></div>
+              <div id='${i + 50}' class='card_bottom'><div class='card_name'>${cards[j + 1][i].word}</div><a id='${i + 30}' class='rotate'></a></div>
             </div>
             <div class='flip_box_back'>
               <img style='width: 100%; height: 220px; margin: 0px' src='assets/${cards[j + 1][i].image}'>
@@ -66,9 +76,20 @@ for (let j = 0; j < 8; j++) {
         </div>`;
       };
       conditions.cardsStack = true;
+			if (conditions.switchTestPlay == true) {
+				showStartButton()
+			}
     }
   });
 }
+
+//popup
+const popUp = document.createElement('div');
+popUp.id = 'popup';
+popUp.classList.add('popup');
+popUp.style.display = 'none';
+
+document.body.appendChild(popUp);
 
 //Play Game
 const divForGameButton = document.createElement('div');
@@ -97,12 +118,60 @@ function shuffleGameCards(array) {
   return array;
 }
 
-document.getElementById('startGameButton').addEventListener('click', function startGame () {
+document.getElementById('startGameButton').addEventListener('click', function goGame () {
+	for (let i = 0; i < 8; i++) {
+		document.getElementById(`${i + 50}`).style.display = 'none';
+		document.getElementById(`${i + 40}`).style.paddingTop = '20px';
+		document.getElementById(`${i + 40}`).style.transition = 'all 1s';
+		// document.getElementById(`${i + 40}`).style.height = '260px';
+	}
+	//change button
+	startGameButton.style.padding = '15px 15px';
+	startGameButton.style.width = '65px';
+	startGameButton.style.borderRadius = '50%';
+	startGameButton.style.transition = 'all 1.5s';
+	startGameButton.innerHTML = "<img src='./assets/img/repeat.svg'>"
+
 	let listWords = [0, 1, 2, 3, 4, 5, 6, 7];
 	shuffleGameCards(listWords);
-	// for (let i = 0; i < listWords.length; i++) {
-	// 	soundHandler(`assets/${cards[numberOfStack + 1][i].audioSrc}`);
-	// }
-	soundHandler(`assets/${cards[numberOfStack + 1][listWords[0]].audioSrc}`);
-	console.log(listWords);
+	//Play game
+	function getStage(cardNumber) {
+		soundHandler(`assets/${cards[numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
+		for (let j = 0; j < listWords.length; j++) {
+		  document.getElementById(j).addEventListener('click', () => {
+				conditions.goodChoise = false;
+				if (j === listWords[cardNumber]) {
+					conditions.goodChoise = true;
+					conditions.arrayOfChoise.push(true);
+					soundHandler(`./assets/audio/correct.mp3`);
+					document.getElementById(j).style.opacity = '0.5';
+					cardNumber += 1;
+					if (cardNumber === 8) {
+						if(conditions.arrayOfChoise.includes(false) === false) {
+								soundHandler(`./assets/audio/success.mp3`);
+								allHide();
+								popUp.innerHTML = "<img style='width: 400px, height: 400px' src='./assets/img/success.jpg'>"
+								PopUpShow()
+						}
+						if(conditions.arrayOfChoise.includes(false) === true) {
+								soundHandler(`./assets/audio/failure.mp3`);
+								allHide();
+								popUp.innerHTML = "<img style='width: 400px, height: 400px' src='./assets/img/failure.jpg'>"
+								PopUpShow()
+						}
+						return setTimeout(function(){
+							location.reload();
+						}, 2500);
+					}
+					soundHandler(`assets/${cards[numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
+				}
+				if (conditions.goodChoise === false) {
+					conditions.goodChoise == false;
+					conditions.arrayOfChoise.push(false);
+					soundHandler(`./assets/audio/error.mp3`);
+				}
+			});
+		}
+	}
+	getStage (0);
 });
