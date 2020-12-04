@@ -1,6 +1,7 @@
 import cards from './cards.js';
 import conditions from './conditions.js';
 import numberOfStack from '../index.js';
+import gameRating from '../index.js';
 
 // HEADER
 //create menu
@@ -120,6 +121,12 @@ export function randomInteger(min, max) {
  	document.getElementById('divForGameButton').style.display = 'none';
  };
 
+function reloadIfGameStart () {
+  if (conditions.gameStart === true) {
+    location.reload();
+  }
+}
+
 //Get Start menu
  function formStartMenu () {
    removeActiveClass ()
@@ -140,6 +147,7 @@ export function removeActiveClass () {
 
 //menu point Main Page
 document.getElementById('10').addEventListener('click', () => {
+  reloadIfGameStart ()
   formStartMenu ();
   if (conditions.switchTestPlay == false) {
     getPurpleColor ();
@@ -208,26 +216,27 @@ formOtherMenu();
 
 //Test/Play
 document.getElementById('myonoffswitch').onclick = function changeTestPlay() {
+  reloadIfGameStart ();
   conditions.switchTestPlay = !conditions.switchTestPlay;
-  if (conditions.switchTestPlay == false) {
-    if (conditions.cardsStack == false) {
+  if (conditions.switchTestPlay === false) {
+    if (conditions.cardsStack === false) {
       formStartMenu ()
       getPurpleColor ()
       hideStartButton()
     }
-    if (conditions.cardsStack == true) {
+    if (conditions.cardsStack === true) {
       document.getElementById('navLeft').style.background = '#4b475c';
       formOtherMenu();
       hideStartButton()
     }
   }
-  if (conditions.switchTestPlay == true) {
-    if (conditions.cardsStack == false) {
+  if (conditions.switchTestPlay === true) {
+    if (conditions.cardsStack === false) {
       formStartMenu ();
       getBrownColor ();
       hideStartButton()
     }
-    if (conditions.cardsStack == true) {
+    if (conditions.cardsStack === true) {
       document.getElementById('navLeft').style.background = '#9b806c';
       formOtherMenu();
       showStartButton()

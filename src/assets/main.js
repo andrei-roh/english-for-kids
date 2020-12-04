@@ -6,10 +6,11 @@ import {showStartButton} from './header.js';
 import numberOfStack from '../index.js';
 import conditions from './conditions.js';
 
-//function popup
-function PopUpShow(){
-	popUp.style.display = 'flex';
+//show game result
+function resultShow() {
+	gameResult.style.display = 'flex';
 }
+//hide header & main
 function allHide() {
 	main.style.display = 'none';
 	header.style.display = 'none';
@@ -22,8 +23,14 @@ function soundHandler(soundSource) {
 	keySound.play();
  }
 
-//create main element
+//create main elements
 const main = document.createElement('main');
+//create game rating
+const gameRating = document.createElement('div');
+gameRating.classList.add('game_rating');
+gameRating.id = 'gameRating'
+main.appendChild(gameRating);
+
 for (let i = 0; i < 8; i++) {
   const mainElement = document.createElement('a');
   main.id = 'main';
@@ -83,13 +90,13 @@ for (let j = 0; j < 8; j++) {
   });
 }
 
-//popup
-const popUp = document.createElement('div');
-popUp.id = 'popup';
-popUp.classList.add('popup');
-popUp.style.display = 'none';
+//result
+const gameResult = document.createElement('div');
+gameResult.id = 'gameResult';
+gameResult.classList.add('game_result');
+gameResult.style.display = 'none';
 
-document.body.appendChild(popUp);
+document.body.appendChild(gameResult);
 
 //Play Game
 const divForGameButton = document.createElement('div');
@@ -98,11 +105,18 @@ divForGameButton.id = 'divForGameButton';
 
 const startGameButton = document.createElement('button');
 startGameButton.classList.add('start_game_button');
-startGameButton.id = 'startGameButton'
+startGameButton.id = 'startGameButton';
 startGameButton.innerHTML = "START GAME";
+
+const repeatSoundButton = document.createElement('button');
+repeatSoundButton.classList.add('repeat_sound_button');
+repeatSoundButton.style.display = 'none';
+repeatSoundButton.innerHTML = "<img style='width: 100%' src='./assets/img/repeat.svg'>";
+
 
 main.appendChild(divForGameButton);
 divForGameButton.appendChild(startGameButton);
+divForGameButton.appendChild(repeatSoundButton);
 
 function shuffleGameCards(array) {
   let presentValue,
@@ -118,24 +132,25 @@ function shuffleGameCards(array) {
   return array;
 }
 
-document.getElementById('startGameButton').addEventListener('click', function goGame () {
+startGameButton.addEventListener('click', function goGame () {
+	conditions.gameStart = true;
 	for (let i = 0; i < 8; i++) {
 		document.getElementById(`${i + 50}`).style.display = 'none';
 		document.getElementById(`${i + 40}`).style.paddingTop = '20px';
 		document.getElementById(`${i + 40}`).style.transition = 'all 1s';
-		// document.getElementById(`${i + 40}`).style.height = '260px';
 	}
 	//change button
-	startGameButton.style.padding = '15px 15px';
-	startGameButton.style.width = '65px';
-	startGameButton.style.borderRadius = '50%';
-	startGameButton.style.transition = 'all 1.5s';
-	startGameButton.innerHTML = "<img src='./assets/img/repeat.svg'>"
+	startGameButton.style.display = 'none';
+	repeatSoundButton.style.display = 'flex';
 
 	let listWords = [0, 1, 2, 3, 4, 5, 6, 7];
 	shuffleGameCards(listWords);
 	//Play game
+
 	function getStage(cardNumber) {
+		repeatSoundButton.addEventListener('click', function repeatSound () {
+			soundHandler(`assets/${cards[numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
+		});
 		soundHandler(`assets/${cards[numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
 		for (let j = 0; j < listWords.length; j++) {
 		  document.getElementById(j).addEventListener('click', () => {
@@ -144,20 +159,21 @@ document.getElementById('startGameButton').addEventListener('click', function go
 					conditions.goodChoise = true;
 					conditions.arrayOfChoise.push(true);
 					soundHandler(`./assets/audio/correct.mp3`);
-					document.getElementById(j).style.opacity = '0.5';
+					gameRating.insertAdjacentHTML('beforeend', '<div class="star_win"></div>');
+					document.getElementById(j).classList.add('not_active');
 					cardNumber += 1;
 					if (cardNumber === 8) {
 						if(conditions.arrayOfChoise.includes(false) === false) {
 								soundHandler(`./assets/audio/success.mp3`);
 								allHide();
-								popUp.innerHTML = "<img style='width: 400px, height: 400px' src='./assets/img/success.jpg'>"
-								PopUpShow()
+								gameResult.innerHTML = "<img style='width: 400px, height: 400px' src='./assets/img/success.jpg'>"
+								resultShow()
 						}
 						if(conditions.arrayOfChoise.includes(false) === true) {
 								soundHandler(`./assets/audio/failure.mp3`);
 								allHide();
-								popUp.innerHTML = "<img style='width: 400px, height: 400px' src='./assets/img/failure.jpg'>"
-								PopUpShow()
+								gameResult.innerHTML = "<img style='width: 400px, height: 400px' src='./assets/img/failure.jpg'>"
+								resultShow()
 						}
 						return setTimeout(function(){
 							location.reload();
@@ -169,6 +185,7 @@ document.getElementById('startGameButton').addEventListener('click', function go
 					conditions.goodChoise == false;
 					conditions.arrayOfChoise.push(false);
 					soundHandler(`./assets/audio/error.mp3`);
+					gameRating.insertAdjacentHTML('beforeend', '<div class="star_lose"></div>');
 				}
 			});
 		}
