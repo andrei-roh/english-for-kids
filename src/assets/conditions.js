@@ -1,4 +1,5 @@
 const conditions = {
+  openLeftMenu: false,
   cardsStack: false,
   switchTestPlay: false,
   gameStart: false,

@@ -29,7 +29,10 @@ module.exports = {
         { from: "src/assets/audio/", to: "assets/audio/" },
       ],
     }),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'English for Kids',
+      favicon: 'src/favicon.ico'
+    }),
     new CleanWebpackPlugin({ filename: 'index.html', template: 'src/index.html'}),
   ],
 };

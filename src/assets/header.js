@@ -1,19 +1,19 @@
 import cards from './cards.js';
 import conditions from './conditions.js';
 import numberOfStack from '../index.js';
-import gameRating from '../index.js';
 
 // HEADER
 //create menu
 const body = document.querySelector('body');
 //create left menu
 const header = document.createElement('header');
-//Header properties
+//header properties
 header.id = 'header';
 
 const menu = document.createElement('menu'),
 inputLeft = document.createElement('input');
-inputLeft.id = 'nav-toggle_left';
+inputLeft.classList.add('nav_toggle_left');
+inputLeft.id = 'nav_toggle_left';
 inputLeft.type = 'checkbox';
 inputLeft.hidden = '';
 
@@ -22,9 +22,9 @@ navLeft.classList.add('nav_left');
 navLeft.id = 'navLeft'
 
 const labelLeft = document.createElement('label');
-//Left menu's parts properties
-labelLeft.classList.add('nav-toggle_left');
-labelLeft.htmlFor = 'nav-toggle_left';
+//left menu's parts properties
+labelLeft.classList.add('label_toggle_left');
+labelLeft.htmlFor = 'nav_toggle_left';
 labelLeft.onclick;
 
 const h2Left = document.createElement('h2');
@@ -37,7 +37,7 @@ logoHeader.innerHTML = 'ENGLISH FOR KIDS';
 const listLeft = document.createElement('ul');
 listLeft.classList.add('header_menu');
 
-//Create switcher
+//create switcher
 const switcher = document.createElement('switcher');
 switcher.classList.add('onoffswitch');
 
@@ -127,7 +127,7 @@ function reloadIfGameStart () {
   }
 }
 
-//Get Start menu
+//get start menu
  function formStartMenu () {
    removeActiveClass ()
    document.getElementById(`${'10'}`).classList.add('active')
@@ -157,7 +157,7 @@ document.getElementById('10').addEventListener('click', () => {
   }
 });
 
-//Other menu points
+//other menu points
 function formOtherMenu() {
   for (let j = 11; j < 19; j++) {
     function creatingOtherMenuCards() {
@@ -214,18 +214,21 @@ function formOtherMenu() {
 
 formOtherMenu();
 
-//Test/Play
+//test/play
 document.getElementById('myonoffswitch').onclick = function changeTestPlay() {
   reloadIfGameStart ();
   conditions.switchTestPlay = !conditions.switchTestPlay;
   if (conditions.switchTestPlay === false) {
     if (conditions.cardsStack === false) {
-      formStartMenu ()
-      getPurpleColor ()
-      hideStartButton()
+      formStartMenu ();
+      getPurpleColor ();
+      hideStartButton();
     }
     if (conditions.cardsStack === true) {
       document.getElementById('navLeft').style.background = '#4b475c';
+      for (let i = 0; i < 8; i++) {
+        document.getElementById(`${i + 30}`).style.backgroundImage = "url('./assets/img/rotate.svg')";
+      };
       formOtherMenu();
       hideStartButton()
     }
@@ -238,6 +241,9 @@ document.getElementById('myonoffswitch').onclick = function changeTestPlay() {
     }
     if (conditions.cardsStack === true) {
       document.getElementById('navLeft').style.background = '#9b806c';
+      for (let i = 0; i < 8; i++) {
+        document.getElementById(`${i + 30}`).style.backgroundImage = "url('./assets/img/rotate-play.svg')";
+      };
       formOtherMenu();
       showStartButton()
     }

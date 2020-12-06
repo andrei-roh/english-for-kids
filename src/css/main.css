@@ -1,4 +1,4 @@
-#main {
+main {
   padding-top: 55px;
   display: flex;
   flex-wrap: wrap;
@@ -11,12 +11,11 @@
 .main_card {
   width: 300px;
   height: 280px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  border-radius: 15px;
+  box-shadow: 10px 5px 20px 0 rgba(0,0,0,.25), 0 2px 12px 0 rgba(0,0,0,.12);
   color: #212529;
   display: flex;
   flex-direction: column;
-  font-family: Roboto;
   font-size: 24px;
   line-height: 36px;
   font-weight: 400;
@@ -25,19 +24,18 @@
   background: linear-gradient(180deg,#3b3749,#4b475c 40%,#fff 0,#fff);
   margin: 20px 25px;
   cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
+  transition: .1s;
 }
 
 .main_card:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,.4);
+  box-shadow: 0 10px 20px rgba(0,0,0,.6);
 }
 
 .main_card img {
   width: 140px;
   height: 140px;
-  /* border-radius: 50%; */
-  /* border: 10px solid #fff; */
+  border-radius: 50%;
+  border: 8px solid #999;
   object-fit: cover;
   margin: 30px auto;
 }
@@ -56,35 +54,23 @@
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: center 4px;
-  /* bottom: 5px; */
   right: 0px;
-  -webkit-transition: .3s;
   transition: .3s;
-  /* filter: grayscale(1); */
 }
 
-/* Flip Box */
+/* flip Box */
 .flip_box {
   background-color: transparent;
-  /* width: 300px;
-  height: 200px; */
-  /* border: 1px solid #f1f1f1; */
   perspective: 1000px;
   width: 320px;
   height: 260px;
-  /* border-radius: 5px; */
-  /* box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12); */
   color: #212529;
   display: flex;
   flex-direction: column;
-  /* font-family: Roboto; */
   font-size: 24px;
-  /* line-height: 36px; */
   font-weight: 400;
   text-align: center;
   text-decoration: none;
-  /* background: -webkit-gradient(linear,left top,left bottom,from(#3b3749),color-stop(40%,#4b475c),color-stop(40%,#fff),to(#fff));
-  background: linear-gradient(180deg,#3b3749,#4b475c 40%,#fff 0,#fff); */
   margin: 20px 25px;
   cursor: pointer;
   transition: .3s;
@@ -112,23 +98,19 @@
 }
 
 .flip_box_front {
-  /* background-color: #bbb; */
   color: black;
-  border-radius: 5px;
-  /* border: solid 1px black */
+  border-radius: 10px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
 
 .flip_box_back {
-  /* background-color: #555; */
   color: black;
   transform: rotateY(180deg);
-  border-radius: 5px;
-  /* border: solid 1px black */
+  border-radius: 10px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
 
-/* Play Game */
+/* play Game */
 .div_for_game_button {
   width: 100%;
   display: none;
@@ -194,7 +176,6 @@
    cursor: pointer;
    opacity: 1;
 }
-
 
 /* result */
 .game_result {

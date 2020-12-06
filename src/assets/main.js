@@ -1,4 +1,3 @@
-//Main
 import cards from './cards.js';
 import {removeActiveClass} from './header.js';
 import {randomInteger} from './header.js';
@@ -6,6 +5,7 @@ import {showStartButton} from './header.js';
 import numberOfStack from '../index.js';
 import conditions from './conditions.js';
 
+//MAIN
 //show game result
 function resultShow() {
 	gameResult.style.display = 'flex';
@@ -41,8 +41,18 @@ for (let i = 0; i < 8; i++) {
   main.appendChild(mainElement);
 };
 
+//close navLeft header_menu
+document.getElementById('nav_toggle_left').addEventListener('click', () => {
+	conditions.openLeftMenu = !conditions.openLeftMenu;
+});
+main.addEventListener('click', () => {
+	if (conditions.openLeftMenu === true) {
+		document.getElementById('nav_toggle_left').click();
+	};
+});
+
 document.body.appendChild(main);
-//Create elements
+//create elements
 for (let j = 0; j < 8; j++) {
   document.getElementById(j).addEventListener('click', () => {
 		if (conditions.cardsStack == true) {
@@ -51,7 +61,7 @@ for (let j = 0; j < 8; j++) {
 				document.getElementById(`${j + 30}`).style.opacity = '0';
 				document.getElementById(`${j + 30}`).style.transitionDelay = '0s'
 
-				document.getElementById(`${j + 20}`).addEventListener('mouseout', function(event) {
+				document.getElementById(`${j + 20}`).addEventListener('mouseleave', function(event) {
 					document.getElementById(`${j + 20}`).style.transform = 'rotateY(0deg)';
 					document.getElementById(`${j + 30}`).style.transitionDelay = '0.2s'
 					document.getElementById(`${j + 30}`).style.opacity = '1';
@@ -98,7 +108,7 @@ gameResult.style.display = 'none';
 
 document.body.appendChild(gameResult);
 
-//Play Game
+//create play game elements
 const divForGameButton = document.createElement('div');
 divForGameButton.classList.add('div_for_game_button');
 divForGameButton.id = 'divForGameButton';
@@ -106,13 +116,12 @@ divForGameButton.id = 'divForGameButton';
 const startGameButton = document.createElement('button');
 startGameButton.classList.add('start_game_button');
 startGameButton.id = 'startGameButton';
-startGameButton.innerHTML = "START GAME";
+startGameButton.innerHTML = 'START GAME';
 
 const repeatSoundButton = document.createElement('button');
 repeatSoundButton.classList.add('repeat_sound_button');
 repeatSoundButton.style.display = 'none';
 repeatSoundButton.innerHTML = "<img style='width: 100%' src='./assets/img/repeat.svg'>";
-
 
 main.appendChild(divForGameButton);
 divForGameButton.appendChild(startGameButton);
@@ -145,8 +154,8 @@ startGameButton.addEventListener('click', function goGame () {
 
 	let listWords = [0, 1, 2, 3, 4, 5, 6, 7];
 	shuffleGameCards(listWords);
-	//Play game
 
+	//play game
 	function getStage(cardNumber) {
 		repeatSoundButton.addEventListener('click', function repeatSound () {
 			soundHandler(`assets/${cards[numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
