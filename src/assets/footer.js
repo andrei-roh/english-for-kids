@@ -1,5 +1,6 @@
-//Footer
+//footer
 const footer = document.createElement('footer');
+footer.id = 'footer';
 
 const linkBox = document.createElement('div');
 linkBox.classList.add('link_box')

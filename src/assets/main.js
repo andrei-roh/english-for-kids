@@ -2,26 +2,16 @@ import cards from './cards.js';
 import {removeActiveClass} from './header.js';
 import {randomInteger} from './header.js';
 import {showStartButton} from './header.js';
+import {soundHandler} from './header.js';
 import numberOfStack from '../index.js';
 import conditions from './conditions.js';
+import {allHide} from './allHide.js';
 
 //MAIN
 //show game result
 function resultShow() {
 	gameResult.style.display = 'flex';
 }
-//hide header & main
-function allHide() {
-	main.style.display = 'none';
-	header.style.display = 'none';
-}
-
-//function of reading sounds
-function soundHandler(soundSource) {
-	const keySound = document.createElement('audio');
-	keySound.src = soundSource;
-	keySound.play();
- }
 
 //create main elements
 const main = document.createElement('main');
@@ -39,7 +29,7 @@ for (let i = 0; i < 8; i++) {
   mainElement.href = '#/cards';
   mainElement.innerHTML = `<img src='assets/${cards[i + 1][randomInteger(0, 6)].image}'> ${cards[0][i]}`;
   main.appendChild(mainElement);
-};
+}
 
 //close navLeft header_menu
 document.getElementById('nav_toggle_left').addEventListener('click', () => {
@@ -48,7 +38,7 @@ document.getElementById('nav_toggle_left').addEventListener('click', () => {
 main.addEventListener('click', () => {
 	if (conditions.openLeftMenu === true) {
 		document.getElementById('nav_toggle_left').click();
-	};
+	}
 });
 
 document.body.appendChild(main);
@@ -61,12 +51,12 @@ for (let j = 0; j < 8; j++) {
 				document.getElementById(`${j + 30}`).style.opacity = '0';
 				document.getElementById(`${j + 30}`).style.transitionDelay = '0s'
 
-				document.getElementById(`${j + 20}`).addEventListener('mouseleave', function(event) {
+				document.getElementById(`${j + 20}`).addEventListener('mouseleave', function() {
 					document.getElementById(`${j + 20}`).style.transform = 'rotateY(0deg)';
 					document.getElementById(`${j + 30}`).style.transitionDelay = '0.2s'
 					document.getElementById(`${j + 30}`).style.opacity = '1';
 				});
-			};
+			}
 			if (event.target === document.getElementById(`${j + 40}`) && conditions.switchTestPlay == false) {
 				soundHandler(`assets/${cards[numberOfStack + 1][j].audioSrc}`);
 			}
@@ -91,7 +81,7 @@ for (let j = 0; j < 8; j++) {
             </div>
           </div>
         </div>`;
-      };
+      }
       conditions.cardsStack = true;
 			if (conditions.switchTestPlay == true) {
 				showStartButton()
@@ -129,8 +119,8 @@ divForGameButton.appendChild(repeatSoundButton);
 
 function shuffleGameCards(array) {
   let presentValue,
-	  randomIndex,
-	  currentIndex = array.length;
+  randomIndex,
+  currentIndex = array.length;
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
@@ -162,7 +152,7 @@ startGameButton.addEventListener('click', function goGame () {
 		});
 		soundHandler(`assets/${cards[numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
 		for (let j = 0; j < listWords.length; j++) {
-		  document.getElementById(j).addEventListener('click', () => {
+			document.getElementById(j).addEventListener('click', () => {
 				conditions.goodChoise = false;
 				if (j === listWords[cardNumber]) {
 					conditions.goodChoise = true;

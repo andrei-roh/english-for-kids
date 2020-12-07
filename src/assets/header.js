@@ -4,7 +4,7 @@ import numberOfStack from '../index.js';
 
 // HEADER
 //create menu
-const body = document.querySelector('body');
+// const body = document.querySelector('body');
 //create left menu
 const header = document.createElement('header');
 //header properties
@@ -98,28 +98,36 @@ export function randomInteger(min, max) {
   let randomNumber = min + Math.random() * (max - min + 1);
   return Math.abs(Math.round(randomNumber));
  }
+
+ //function of reading sounds
+ export function soundHandler(soundSource) {
+   const keySound = document.createElement('audio');
+   keySound.src = soundSource;
+   keySound.play();
+  }
+
  //Change color on Purple
  export function getPurpleColor () {
    document.getElementById('navLeft').style.background = '#4b475c';
    for (let i = 0; i < 8; i++) {
      document.getElementById(`${i}`).style.background = 'linear-gradient(180deg,#3b3749,#4b475c 40%,#fff 0,#fff)';
-   };
+   }
  }
 //Change color on Brown
  export function getBrownColor () {
    document.getElementById('navLeft').style.background = '#9b806c';
    for (let i = 0; i < 8; i++) {
      document.getElementById(`${i}`).style.background = 'linear-gradient(180deg,#9b806c,#aa9483 40%,#fff 0,#fff)';
-   };
+   }
  }
 
  export function showStartButton () {
- 	document.getElementById('divForGameButton').style.display = 'flex';
- };
+ document.getElementById('divForGameButton').style.display = 'flex';
+ }
 
  export function hideStartButton () {
- 	document.getElementById('divForGameButton').style.display = 'none';
- };
+ document.getElementById('divForGameButton').style.display = 'none';
+ }
 
 function reloadIfGameStart () {
   if (conditions.gameStart === true) {
@@ -134,9 +142,9 @@ function reloadIfGameStart () {
    for (let i = 0; i < 8; i++) {
      document.getElementById(`${i}`).classList.add('main_card');
      document.getElementById(`${i}`).innerHTML = `<img src='assets/${cards[i + 1][randomInteger(0, 6)].image}'> ${cards[0][i]}`;
-   };
+   }
    conditions.cardsStack = false;
- };
+ }
 
 //remove class 'active' from all menu elements
 export function removeActiveClass () {
@@ -180,31 +188,30 @@ function formOtherMenu() {
             </div>
           </div>
         </div>`;
-      };
+      }
       conditions.cardsStack = true;
       numberOfStack = j - 11;
     }
 
     document.getElementById(j).addEventListener('click', () => {
-  		if (conditions.cardsStack == true) {
-  			if (event.target === document.getElementById(`${j + 20}`)) {
-  				document.getElementById(`${j + 10}`).style.transform = 'rotateY(180deg)';
-  				document.getElementById(`${j + 20}`).style.opacity = '0';
-  				document.getElementById(`${j + 20}`).style.transitionDelay = '0s'
-
-  				document.getElementById(`${j + 10}`).addEventListener('mouseout', function(event) {
-  					document.getElementById(`${j + 10}`).style.transform = 'rotateY(0deg)';
-  					document.getElementById(`${j + 20}`).style.transitionDelay = '0.2s'
-  					document.getElementById(`${j + 20}`).style.opacity = '1';
-  				});
-  			};
-  			if (event.target === document.getElementById(`${j + 30}`)) {
-  				soundHandler(`assets/${cards[numberOfStack + 1][j].audioSrc}`);
-  			}
+      if (conditions.cardsStack == true) {
+        if (event.target === document.getElementById(`${j + 20}`)) {
+          document.getElementById(`${j + 10}`).style.transform = 'rotateY(180deg)';
+          document.getElementById(`${j + 20}`).style.opacity = '0';
+          document.getElementById(`${j + 20}`).style.transitionDelay = '0s'
+          document.getElementById(`${j + 10}`).addEventListener('mouseout', function() {
+            document.getElementById(`${j + 10}`).style.transform = 'rotateY(0deg)';
+            document.getElementById(`${j + 20}`).style.transitionDelay = '0.2s'
+            document.getElementById(`${j + 20}`).style.opacity = '1';
+          });
+        }
+        if (event.target === document.getElementById(`${j + 30}`)) {
+          soundHandler(`assets/${cards[numberOfStack + 1][j].audioSrc}`);
+        }
         if (event.target === document.getElementById(`${j}`)) {
           creatingOtherMenuCards()
         }
-  		}
+      }
       if (conditions.cardsStack == false) {
         creatingOtherMenuCards();
       }
@@ -228,7 +235,7 @@ document.getElementById('myonoffswitch').onclick = function changeTestPlay() {
       document.getElementById('navLeft').style.background = '#4b475c';
       for (let i = 0; i < 8; i++) {
         document.getElementById(`${i + 30}`).style.backgroundImage = "url('./assets/img/rotate.svg')";
-      };
+      }
       formOtherMenu();
       hideStartButton()
     }
@@ -243,7 +250,7 @@ document.getElementById('myonoffswitch').onclick = function changeTestPlay() {
       document.getElementById('navLeft').style.background = '#9b806c';
       for (let i = 0; i < 8; i++) {
         document.getElementById(`${i + 30}`).style.backgroundImage = "url('./assets/img/rotate-play.svg')";
-      };
+      }
       formOtherMenu();
       showStartButton()
     }
