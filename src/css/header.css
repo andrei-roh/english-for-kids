@@ -74,7 +74,7 @@ header {
 
 .nav_toggle_left:checked ~ .nav_left {
     left: 0;
-    padding-left: 0px;
+    padding-left: 15px;
     box-shadow: 6px 0px 22px 0px rgba(0,0,0, 0.8);
     overflow-y: auto;
 }
@@ -91,6 +91,8 @@ header {
 .nav_toggle_left:checked ~ .nav_left > .label_toggle_left:after {
     content: '\2715';
     color: #FFFFFF;
+    position: absolute;
+    left: 0px;
 }
 
 .nav_toggle_left:checked ~ .nav_left h2 {
@@ -119,7 +121,7 @@ ul {
 
 .nav_toggle_left:checked ~ .nav_left > ul > li {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(-5);
 }
 
 .logo_header {
