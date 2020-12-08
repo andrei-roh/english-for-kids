@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -13,8 +14,31 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          // options: {
+          //    presets: ['@babel/preset-env']
+          // }
+        }
+      },
+      {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: ''
+            }
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -33,6 +57,7 @@ module.exports = {
       title: 'English for Kids',
       favicon: 'src/favicon.ico'
     }),
+    new MiniCssExtractPlugin(),
     new CleanWebpackPlugin({ filename: 'index.html', template: 'src/index.html'}),
   ],
 };
