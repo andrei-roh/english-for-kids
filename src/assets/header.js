@@ -1,15 +1,12 @@
 import cards from './cards.js';
 import conditions from './conditions.js';
-import numberOfStack from '../index.js';
 
 // HEADER
-//create menu
-// const body = document.querySelector('body');
 //create left menu
 const header = document.createElement('header');
 //header properties
 header.id = 'header';
-
+//create menu
 const menu = document.createElement('menu'),
 inputLeft = document.createElement('input');
 inputLeft.classList.add('nav_toggle_left');
@@ -171,7 +168,7 @@ function formOtherMenu() {
     function creatingOtherMenuCards() {
       removeActiveClass();
       document.getElementById(`${j}`).classList.add('active');
-      numberOfStack = j;
+      conditions.numberOfStack = j;
       for (let i = 0; i < 8; i++) {
         document.getElementById(`${i}`).style.background = 'none';
         document.getElementById(`${i}`).classList.remove('main_card')
@@ -190,7 +187,7 @@ function formOtherMenu() {
         </div>`;
       }
       conditions.cardsStack = true;
-      numberOfStack = j - 11;
+      conditions.numberOfStack = j - 11;
     }
 
     document.getElementById(j).addEventListener('click', () => {
@@ -206,7 +203,7 @@ function formOtherMenu() {
           });
         }
         if (event.target === document.getElementById(`${j + 30}`)) {
-          soundHandler(`assets/${cards[numberOfStack + 1][j].audioSrc}`);
+          soundHandler(`assets/${cards[conditions.numberOfStack + 1][j].audioSrc}`);
         }
         if (event.target === document.getElementById(`${j}`)) {
           creatingOtherMenuCards()

@@ -1,6 +1,3 @@
-// import _ from 'lodash';
-export const numberOfStack = 0;
-
 import './css/header.css';
 import './css/main.css';
 import './css/footer.css';

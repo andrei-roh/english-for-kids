@@ -3,7 +3,6 @@ import {removeActiveClass} from './header.js';
 import {randomInteger} from './header.js';
 import {showStartButton} from './header.js';
 import {soundHandler} from './header.js';
-import numberOfStack from '../index.js';
 import conditions from './conditions.js';
 import {allHide} from './allHide.js';
 
@@ -58,13 +57,13 @@ for (let j = 0; j < 8; j++) {
 				});
 			}
 			if (event.target === document.getElementById(`${j + 40}`) && conditions.switchTestPlay == false) {
-				soundHandler(`assets/${cards[numberOfStack + 1][j].audioSrc}`);
+				soundHandler(`assets/${cards[conditions.numberOfStack + 1][j].audioSrc}`);
 			}
 		}
     if (conditions.cardsStack == false) {
       removeActiveClass ()
       document.getElementById(`${j + 11}`).classList.add('active');
-      numberOfStack = j;
+      conditions.numberOfStack = j;
       for (let i = 0; i < 8; i++) {
 				document.getElementById(`${i}`).style.background = 'none';
         document.getElementById(`${i}`).classList.remove('main_card')
@@ -148,9 +147,9 @@ startGameButton.addEventListener('click', function goGame () {
 	//play game
 	function getStage(cardNumber) {
 		repeatSoundButton.addEventListener('click', function repeatSound () {
-			soundHandler(`assets/${cards[numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
+			soundHandler(`assets/${cards[conditions.numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
 		});
-		soundHandler(`assets/${cards[numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
+		soundHandler(`assets/${cards[conditions.numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
 		for (let j = 0; j < listWords.length; j++) {
 			document.getElementById(j).addEventListener('click', () => {
 				conditions.goodChoise = false;
@@ -178,7 +177,7 @@ startGameButton.addEventListener('click', function goGame () {
 							location.reload();
 						}, 2500);
 					}
-					soundHandler(`assets/${cards[numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
+					soundHandler(`assets/${cards[conditions.numberOfStack + 1][listWords[cardNumber]].audioSrc}`);
 				}
 				if (conditions.goodChoise === false) {
 					conditions.goodChoise == false;

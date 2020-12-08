@@ -11,6 +11,21 @@ header {
 
 /* left menu */
 .nav_left {
+  width: 280px;
+  min-width: 280px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  left: -280px;
+  padding: 15px 22px;
+  transition: left 0.3s;
+  z-index: 2000;
+  background: #4b475c;
+}
+@media only screen and (min-width: 768px){
+  .nav_left {
     width: 280px;
     min-width: 280px;
     height: 100%;
@@ -23,81 +38,66 @@ header {
     transition: left 0.3s;
     z-index: 2000;
     background: #4b475c;
-}
-@media only screen and (min-width: 768px){
-  .nav_left {
-      width: 280px;
-      min-width: 280px;
-      height: 100%;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      margin: 0;
-      left: -280px;
-      padding: 15px 22px;
-      transition: left 0.3s;
-      z-index: 2000;
-      background: #4b475c;
   }
 }
 
 .label_toggle_left {
-    position: absolute;
-    left: 280px;
-    padding-left: 0.25em;
-    background: inherit;
-    color: #FFFFFF;
-    cursor: pointer;
-    font-size: 2em;
-    line-height: 1;
-    z-index: 2001;
-    transition: color 1.25s ease-in-out;
+  position: absolute;
+  left: 280px;
+  padding-left: 0.25em;
+  background: inherit;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 2em;
+  line-height: 1;
+  z-index: 2001;
+  transition: color 1.25s ease-in-out;
 }
 
 /* make button icon */
 .label_toggle_left:after {
-    content: '\2630';
-    text-decoration: none;
-    color: #FFFFFF;
+  content: '\2630';
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 /* text color on hover */
 .label_toggle_left:hover {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 /* hidden checkbox */
 .nav_toggle_left {
-    position: absolute;
-    display: none;
+  position: absolute;
+  display: none;
 }
 
 .nav_toggle_left:checked ~ .nav_left {
-    left: 0;
-    padding-left: 15px;
-    box-shadow: 6px 0px 22px 0px rgba(0,0,0, 0.8);
-    overflow-y: auto;
+  left: 0;
+  padding-left: 15px;
+  box-shadow: 6px 0px 22px 0px rgba(0,0,0, 0.8);
+  overflow-y: auto;
 }
 
 @media only screen and (min-width: 768px){
   .nav_toggle_left:checked ~ .nav_left {
-      left: 0;
-      padding-left: 50px;
-      box-shadow: 6px 0px 22px 0px rgba(0,0,0, 0.8);
-      overflow-y: auto;
+    left: 0;
+    padding-left: 50px;
+    box-shadow: 6px 0px 22px 0px rgba(0,0,0, 0.8);
+    overflow-y: auto;
   }
 }
 
 .nav_toggle_left:checked ~ .nav_left > .label_toggle_left:after {
-    content: '\2715';
-    color: #FFFFFF;
-    position: absolute;
-    left: 0px;
+  content: '\2715';
+  color: #FFFFFF;
+  position: absolute;
+  left: 0px;
 }
 
 .nav_toggle_left:checked ~ .nav_left h2 {
-    opacity: 1;
-    transform: scale(1, 1);
+  opacity: 1;
+  transform: scale(1, 1);
 }
 
 /* menu style */
@@ -106,22 +106,22 @@ ul {
 }
 
 .nav_left > ul {
-    display: block;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .nav_left > ul > li {
-    line-height: 2.5;
-    opacity: 0;
-    transform: translateX(-50%);
-    transition: opacity .5s .1s, transform .5s .1s;
+  line-height: 2.5;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity .5s .1s, transform .5s .1s;
 }
 
 .nav_toggle_left:checked ~ .nav_left > ul > li {
-    opacity: 1;
-    transform: translateX(-5);
+  opacity: 1;
+  transform: translateX(-5);
 }
 
 .logo_header {
