@@ -1,0 +1,209 @@
+main {
+  padding-top: 55px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 15px;
+  max-width: 1440px;
+  margin: auto;
+}
+
+.main_card {
+  margin-left: 50px;
+}
+@media only screen and (min-width: 768px){
+  .main_card {
+    width: 300px;
+    height: 280px;
+    border-radius: 15px;
+    box-shadow: 10px 5px 20px 0 rgba(0,0,0,.25), 0 2px 12px 0 rgba(0,0,0,.12);
+    color: #212529;
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(180deg,#3b3749,#4b475c 40%,#fff 0,#fff);
+    margin: 20px 25px;
+    cursor: pointer;
+    transition: .1s;
+  }
+}
+
+.main_card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,.6);
+}
+
+.main_card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 8px solid #999;
+  object-fit: cover;
+  margin: 30px auto;
+}
+
+.card_bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rotate {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center 4px;
+  right: 0px;
+  transition: .3s;
+}
+
+/* flip Box */
+.flip_box {
+  background-color: transparent;
+  perspective: 1000px;
+  width: 320px;
+  height: 260px;
+  color: #212529;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  margin: 20px 25px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.flip_box_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip_box_inner:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,.4);
+}
+
+.flip_box_front, .flip_box_back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip_box_front {
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.flip_box_back {
+  color: black;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+/* play Game */
+.div_for_game_button {
+  width: 100%;
+  display: none;
+  justify-content: center;
+}
+
+.start_game_button {
+  padding: 5px 15px;
+  font-size: 22px;
+  margin: 20px auto;
+  height: 65px;
+  background: #9b806c;
+  color: #fff;
+  border-radius: 10px;
+  outline: 0!important;
+  border-width: 0px;
+  transition: 2s;
+  cursor: pointer;
+}
+
+.start_game_button:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,.4);
+}
+
+.repeat_sound_button {
+  padding: 15px 15px;
+  margin: 20px auto;
+  font-size: 22px;
+  height: 65px;
+  width: 65px;
+  background: #9b806c;
+  color: #fff;
+  border-radius: 50%;
+  outline: 0!important;
+  border-width: 0px;
+  transition: all 2s;
+  cursor: pointer;
+}
+
+.repeat_sound_button:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,.4);
+}
+
+.game_rating {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  height: 40px;
+  overflow-x: hidden;
+  line-height: 36px;
+  font-size: 36px;
+  color: #9b806c;
+}
+
+.not_active {
+   pointer-events: none;
+   cursor: default;
+   opacity: 0.5;
+}
+
+.active {
+   pointer-events: all;
+   cursor: pointer;
+   opacity: 1;
+}
+
+/* result */
+.game_result {
+  width: 100%;
+  padding-top: 100px;
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+}
+
+.star_win {
+  flex-shrink: 0;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+}
+
+.star_lose {
+  flex-shrink: 0;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+}
