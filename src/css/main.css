@@ -50,7 +50,6 @@ main {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-image: url(../assets/img/rotate.svg);
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: center 4px;
@@ -194,7 +193,6 @@ main {
   min-width: 40px;
   height: 40px;
   background-size: 40px 40px;
-  background-image: url(../assets/img/star-win.svg);
 }
 
 .star_lose {
@@ -203,5 +201,4 @@ main {
   min-width: 40px;
   height: 40px;
   background-size: 40px 40px;
-  background-image: url(../assets/img/star.svg);
 }

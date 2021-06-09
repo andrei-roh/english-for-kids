@@ -1,63 +1,55 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const webpack = require('webpack');
+const path = require('path')
 
 module.exports = {
   entry: './src/index.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          // options: {
-          //    presets: ['@babel/preset-env']
-          // }
-        }
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
       },
       {
-        test: /\.css$/i,
+        test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: ''
-            }
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'postcss-loader'
+            loader: 'file-loader',
+            options: {}
           }
-        ],
+        ]
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
       },
-    ],
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader?classPrefix'
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist/'),
+    filename: 'bundle.js'
   },
   plugins: [
-    new CopyPlugin({
-      patterns: [
-        { from: "src/assets/img/", to: "assets/img/" },
-        { from: "src/assets/audio/", to: "assets/audio/" },
-      ],
-    }),
-    new HtmlWebpackPlugin({
-      title: 'English for Kids',
-      favicon: 'src/favicon.ico'
-    }),
-    new MiniCssExtractPlugin(),
-    new CleanWebpackPlugin({ filename: 'index.html', template: 'src/index.html'}),
+    new webpack.HotModuleReplacementPlugin()
   ],
+
+  devServer: {
+    contentBase: path.resolve(__dirname, './dist'),
+    publicPath: '/',
+    host: 'localhost',
+    port: 8080,
+    open: true,
+  },
 };

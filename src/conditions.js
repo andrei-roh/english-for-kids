@@ -5,7 +5,7 @@ const conditions = {
   gameStart: false,
   goodChoise: false,
   arrayOfChoise: [],
-  numberOfStack: 0
-}
+  numberOfStack: 0,
+};
 
 export default conditions;
