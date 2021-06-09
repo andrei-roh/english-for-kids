@@ -63,7 +63,7 @@ navLeft.appendChild(labelLeft);
 navLeft.appendChild(h2Left);
 h2Left.appendChild(logoHeader);
 h2Left.appendChild(listLeft);
-for (let i = 0; i < 9; i++) {
+for (let i = 0; i < 9; i += 1) {
   const formList = document.createElement('a');
   if (i === 0) {
     formList.id = i + 10;
@@ -134,7 +134,7 @@ function reloadIfGameStart() {
 function formStartMenu() {
   removeActiveClass();
   document.getElementById(`${'10'}`).classList.add('active');
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 8; i += 1) {
     document.getElementById(`${i}`).classList.add('main_card');
     document.getElementById(`${i}`).innerHTML = `
       <img src='assets/${cards[i + 1][randomInteger(0, 6)].image}'> ${
@@ -166,12 +166,12 @@ document.getElementById('10').addEventListener('click', () => {
 
 //other menu points
 function formOtherMenu() {
-  for (let j = 11; j < 19; j++) {
+  for (let j = 11; j < 19; j += 1) {
     function creatingOtherMenuCards() {
       removeActiveClass();
       document.getElementById(`${j}`).classList.add('active');
       conditions.numberOfStack = j;
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 8; i += 1) {
         document.getElementById(`${i}`).style.background = 'none';
         document.getElementById(`${i}`).classList.remove('main_card');
         document.getElementById(`${i}`).innerHTML = `
@@ -250,7 +250,7 @@ document.getElementById('myonoffswitch').onclick = function changeTestPlay() {
     }
     if (conditions.cardsStack === true) {
       document.getElementById('navLeft').style.background = '#4b475c';
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 8; i += 1) {
         document.getElementById(`${i + 30}`).style.backgroundImage =
           "url('./assets/img/rotate.svg')";
       }
@@ -266,7 +266,7 @@ document.getElementById('myonoffswitch').onclick = function changeTestPlay() {
     }
     if (conditions.cardsStack === true) {
       document.getElementById('navLeft').style.background = '#9b806c';
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 8; i += 1) {
         document.getElementById(`${i + 30}`).style.backgroundImage =
           "url('./assets/img/rotate-play.svg')";
       }

@@ -17,7 +17,7 @@ logoLink.classList.add('logo_link');
 logoLink.innerHTML = '<img src="./assets/img/rs_school_js.svg">';
 
 const yearSpan = document.createElement('span');
-yearSpan.classList.add('year_span');
+yearSpan.classList.add('year');
 yearSpan.innerHTML = '2020';
 
 document.body.appendChild(footer);

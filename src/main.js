@@ -4,7 +4,7 @@ import { randomInteger } from './header.js';
 import { showStartButton } from './header.js';
 import { soundHandler } from './header.js';
 import conditions from './conditions.js';
-import { allHide } from './allHide.js';
+import { setAllHide } from './allHide.js';
 
 //show game result
 function resultShow() {
@@ -19,7 +19,7 @@ gameRating.classList.add('game_rating');
 gameRating.id = 'gameRating';
 main.appendChild(gameRating);
 
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 8; i += 1) {
   const mainElement = document.createElement('a');
   main.id = 'main';
   mainElement.id = i;
@@ -43,7 +43,7 @@ main.addEventListener('click', () => {
 
 document.body.appendChild(main);
 //create elements
-for (let j = 0; j < 8; j++) {
+for (let j = 0; j < 8; j += 1) {
   document.getElementById(j).addEventListener('click', () => {
     if (conditions.cardsStack === true) {
       if (event.target === document.getElementById(`${j + 30}`)) {
@@ -74,7 +74,7 @@ for (let j = 0; j < 8; j++) {
       removeActiveClass();
       document.getElementById(`${j + 11}`).classList.add('active');
       conditions.numberOfStack = j;
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 8; i += 1) {
         document.getElementById(`${i}`).style.background = 'none';
         document.getElementById(`${i}`).classList.remove('main_card');
         document.getElementById(`${i}`).innerHTML = `
@@ -162,7 +162,7 @@ function shuffleGameCards(array) {
 
 startGameButton.addEventListener('click', function goGame() {
   conditions.gameStart = true;
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 8; i += 1) {
     document.getElementById(`${i + 50}`).style.display = 'none';
     document.getElementById(`${i + 40}`).style.paddingTop = '20px';
     document.getElementById(`${i + 40}`).style.transition = 'all 1s';
@@ -171,27 +171,27 @@ startGameButton.addEventListener('click', function goGame() {
   startGameButton.style.display = 'none';
   repeatSoundButton.style.display = 'flex';
 
-  let listWords = [0, 1, 2, 3, 4, 5, 6, 7];
-  shuffleGameCards(listWords);
+  let listWordsIndexes = Array.from(Array(8).keys());
+  shuffleGameCards(listWordsIndexes);
 
   //play game
   function getStage(cardNumber) {
     repeatSoundButton.addEventListener('click', function repeatSound() {
       soundHandler(
         `assets/${
-          cards[conditions.numberOfStack + 1][listWords[cardNumber]].audioSrc
+          cards[conditions.numberOfStack + 1][listWordsIndexes[cardNumber]].audioSrc
         }`
       );
     });
     soundHandler(
       `assets/${
-        cards[conditions.numberOfStack + 1][listWords[cardNumber]].audioSrc
+        cards[conditions.numberOfStack + 1][listWordsIndexes[cardNumber]].audioSrc
       }`
     );
-    for (let j = 0; j < listWords.length; j++) {
+    for (let j = 0; j < listWordsIndexes.length; j += 1) {
       document.getElementById(j).addEventListener('click', () => {
         conditions.goodChoise = false;
-        if (j === listWords[cardNumber]) {
+        if (j === listWordsIndexes[cardNumber]) {
           conditions.goodChoise = true;
           conditions.arrayOfChoise.push(true);
           soundHandler(`./assets/audio/correct.mp3`);
@@ -204,14 +204,14 @@ startGameButton.addEventListener('click', function goGame() {
           if (cardNumber === 8) {
             if (conditions.arrayOfChoise.includes(false) === false) {
               soundHandler(`./assets/audio/success.mp3`);
-              allHide();
+              setAllHide();
               gameResult.innerHTML =
                 "<img style='width: 400px, height: 400px' src='./assets/img/success.jpg'>";
               resultShow();
             }
             if (conditions.arrayOfChoise.includes(false) === true) {
               soundHandler(`./assets/audio/failure.mp3`);
-              allHide();
+              setAllHide();
               gameResult.innerHTML =
                 "<img style='width: 400px, height: 400px' src='./assets/img/failure.jpg'>";
               resultShow();
@@ -222,7 +222,7 @@ startGameButton.addEventListener('click', function goGame() {
           }
           soundHandler(
             `assets/${
-              cards[conditions.numberOfStack + 1][listWords[cardNumber]]
+              cards[conditions.numberOfStack + 1][listWordsIndexes[cardNumber]]
                 .audioSrc
             }`
           );

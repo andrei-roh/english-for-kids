@@ -24,22 +24,6 @@ header {
   z-index: 2000;
   background: #4b475c;
 }
-@media only screen and (min-width: 768px){
-  .nav_left {
-    width: 280px;
-    min-width: 280px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    margin: 0;
-    left: -280px;
-    padding: 15px 22px;
-    transition: left 0.3s;
-    z-index: 2000;
-    background: #4b475c;
-  }
-}
 
 .label_toggle_left {
   position: absolute;
