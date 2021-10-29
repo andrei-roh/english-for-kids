@@ -8,29 +8,29 @@ header.id = 'header';
 //create menu
 const menu = document.createElement('menu'),
   inputLeft = document.createElement('input');
-inputLeft.classList.add('nav_toggle_left');
-inputLeft.id = 'nav_toggle_left';
+inputLeft.classList.add('nav-toggle-left');
+inputLeft.id = 'nav-toggle-left';
 inputLeft.type = 'checkbox';
 inputLeft.hidden = '';
 
 const navLeft = document.createElement('nav');
-navLeft.classList.add('nav_left');
+navLeft.classList.add('nav-left');
 navLeft.id = 'navLeft';
 
 const labelLeft = document.createElement('label');
 //left menu's parts properties
-labelLeft.classList.add('label_toggle_left');
-labelLeft.htmlFor = 'nav_toggle_left';
+labelLeft.classList.add('label-toggle-left');
+labelLeft.htmlFor = 'nav-toggle-left';
 
 const h2Left = document.createElement('h2');
 h2Left.classList.add('logo');
 
 const logoHeader = document.createElement('div');
-logoHeader.classList.add('logo_header');
+logoHeader.classList.add('logo-header');
 logoHeader.innerHTML = 'ENGLISH FOR KIDS';
 
 const listLeft = document.createElement('ul');
-listLeft.classList.add('header_menu');
+listLeft.classList.add('header-menu');
 
 //create switcher
 const switcher = document.createElement('switcher');
@@ -68,13 +68,13 @@ for (let i = 0; i < 9; i += 1) {
   if (i === 0) {
     formList.id = i + 10;
     formList.href = '#';
-    formList.classList.add('header_item');
+    formList.classList.add('header-item');
     formList.classList.add('active');
     formList.innerHTML = `Main Page`;
   } else {
     formList.id = i + 10;
     formList.href = '#/cards';
-    formList.classList.add('header_item');
+    formList.classList.add('header-item');
     formList.innerHTML = `${cards[0][i - 1]}`;
   }
   listLeft.appendChild(formList);
@@ -135,7 +135,7 @@ function formStartMenu() {
   removeActiveClass();
   document.getElementById(`${'10'}`).classList.add('active');
   for (let i = 0; i < 8; i += 1) {
-    document.getElementById(`${i}`).classList.add('main_card');
+    document.getElementById(`${i}`).classList.add('main-card');
     document.getElementById(`${i}`).innerHTML = `
       <img src='assets/${cards[i + 1][randomInteger(0, 6)].image}'> ${
       cards[0][i]
@@ -173,27 +173,27 @@ function formOtherMenu() {
       conditions.numberOfStack = j;
       for (let i = 0; i < 8; i += 1) {
         document.getElementById(`${i}`).style.background = 'none';
-        document.getElementById(`${i}`).classList.remove('main_card');
+        document.getElementById(`${i}`).classList.remove('main-card');
         document.getElementById(`${i}`).innerHTML = `
-        <div class='flip_box'>
-          <div id='${i + 20}' class='flip_box_inner'>
-            <div class='flip_box_front'>
+        <div class='flip-box'>
+          <div id='${i + 20}' class='flip-box-inner'>
+            <div class='flip-box-front'>
               <img
                 id='${i + 40}'
                 style='width: 100%; height: 220px; margin: 0px'
                 src='assets/${cards[j - 10][i].image}'
               >
-              <div id='${i + 50}' class='card_bottom'>
-                <div class='card_name'>${cards[j - 10][i].word}</div>
+              <div id='${i + 50}' class='card-bottom'>
+                <div class='card-name'>${cards[j - 10][i].word}</div>
                 <a id='${i + 30}' class='rotate'></a>
               </div>
             </div>
-            <div class='flip_box_back'>
+            <div class='flip-box-back'>
               <img style='width: 100%; height: 220px; margin: 0px' src='assets/${
                 cards[j - 10][i].image
               }'>
-              <div class='card_bottom'>
-                <div class='card_name'>${cards[j - 10][i].translation}
+              <div class='card-bottom'>
+                <div class='card-name'>${cards[j - 10][i].translation}
               </div>
             </div>
           </div>
@@ -203,7 +203,7 @@ function formOtherMenu() {
       conditions.numberOfStack = j - 11;
     }
 
-    document.getElementById(j).addEventListener('click', () => {
+    document.getElementById(j).addEventListener('click', (event) => {
       if (conditions.cardsStack === true) {
         if (event.target === document.getElementById(`${j + 20}`)) {
           document.getElementById(`${j + 10}`).style.transform =

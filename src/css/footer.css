@@ -5,7 +5,7 @@ footer {
   align-items: center;
 }
 
-.link_box {
+.link-box {
   display: flex;
   flex-direction: row;
 }
@@ -15,10 +15,10 @@ footer {
   font-weight: bold;
 }
 
-.github_link {
+.github-link {
   padding-right: 10px;
 }
 
-.logo_link {
+.logo-link {
   width: 100px;
 }

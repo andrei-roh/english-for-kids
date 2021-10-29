@@ -10,7 +10,7 @@ header {
 }
 
 /* left menu */
-.nav_left {
+.nav-left {
   width: 280px;
   min-width: 280px;
   height: 100%;
@@ -25,7 +25,7 @@ header {
   background: #4b475c;
 }
 
-.label_toggle_left {
+.label-toggle-left {
   position: absolute;
   left: 280px;
   padding-left: 0.25em;
@@ -39,24 +39,24 @@ header {
 }
 
 /* make button icon */
-.label_toggle_left:after {
+.label-toggle-left:after {
   content: '\2630';
   text-decoration: none;
   color: #FFFFFF;
 }
 
 /* text color on hover */
-.label_toggle_left:hover {
+.label-toggle-left:hover {
   color: #FFFFFF;
 }
 
 /* hidden checkbox */
-.nav_toggle_left {
+.nav-toggle-left {
   position: absolute;
   display: none;
 }
 
-.nav_toggle_left:checked ~ .nav_left {
+.nav-toggle-left:checked ~ .nav-left {
   left: 0;
   padding-left: 15px;
   box-shadow: 6px 0px 22px 0px rgba(0,0,0, 0.8);
@@ -64,7 +64,7 @@ header {
 }
 
 @media only screen and (min-width: 768px){
-  .nav_toggle_left:checked ~ .nav_left {
+  .nav-toggle-left:checked ~ .nav-left {
     left: 0;
     padding-left: 50px;
     box-shadow: 6px 0px 22px 0px rgba(0,0,0, 0.8);
@@ -72,14 +72,14 @@ header {
   }
 }
 
-.nav_toggle_left:checked ~ .nav_left > .label_toggle_left:after {
+.nav-toggle-left:checked ~ .nav-left > .label-toggle-left:after {
   content: '\2715';
   color: #FFFFFF;
   position: absolute;
   left: 0px;
 }
 
-.nav_toggle_left:checked ~ .nav_left h2 {
+.nav-toggle-left:checked ~ .nav-left h2 {
   opacity: 1;
   transform: scale(1, 1);
 }
@@ -89,37 +89,37 @@ ul {
   list-style: none;
 }
 
-.nav_left > ul {
+.nav-left > ul {
   display: block;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.nav_left > ul > li {
+.nav-left > ul > li {
   line-height: 2.5;
   opacity: 0;
   transform: translateX(-50%);
   transition: opacity .5s .1s, transform .5s .1s;
 }
 
-.nav_toggle_left:checked ~ .nav_left > ul > li {
+.nav-toggle-left:checked ~ .nav-left > ul > li {
   opacity: 1;
   transform: translateX(-5);
 }
 
-.logo_header {
+.logo-header {
   padding-top: 1em;
   color: #FFFFFF;
 }
 
-.header_menu {
+.header-menu {
   display: flex;
   flex-direction: column;
   padding-left: 0px;
 }
 
-.header_item {
+.header-item {
   padding: 10px 0;
   font-size: 22px;
   cursor: pointer;
@@ -130,7 +130,7 @@ ul {
   text-align: left;
 }
 
-.header_item.active {
+.header-item.active {
   text-decoration: underline;
 }
 

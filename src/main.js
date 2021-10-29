@@ -15,7 +15,7 @@ function resultShow() {
 const main = document.createElement('main');
 //create game rating
 const gameRating = document.createElement('div');
-gameRating.classList.add('game_rating');
+gameRating.classList.add('game-rating');
 gameRating.id = 'gameRating';
 main.appendChild(gameRating);
 
@@ -23,7 +23,7 @@ for (let i = 0; i < 8; i += 1) {
   const mainElement = document.createElement('a');
   main.id = 'main';
   mainElement.id = i;
-  mainElement.classList.add('main_card');
+  mainElement.classList.add('main-card');
   mainElement.href = '#/cards';
   mainElement.innerHTML = `<img src='assets/${
     cards[i + 1][randomInteger(0, 6)].image
@@ -31,20 +31,20 @@ for (let i = 0; i < 8; i += 1) {
   main.appendChild(mainElement);
 }
 
-//close navLeft header_menu
-document.getElementById('nav_toggle_left').addEventListener('click', () => {
+//close navLeft header-menu
+document.getElementById('nav-toggle-left').addEventListener('click', () => {
   conditions.openLeftMenu = !conditions.openLeftMenu;
 });
 main.addEventListener('click', () => {
   if (conditions.openLeftMenu === true) {
-    document.getElementById('nav_toggle_left').click();
+    document.getElementById('nav-toggle-left').click();
   }
 });
 
 document.body.appendChild(main);
 //create elements
 for (let j = 0; j < 8; j += 1) {
-  document.getElementById(j).addEventListener('click', () => {
+  document.getElementById(j).addEventListener('click', (event) => {
     if (conditions.cardsStack === true) {
       if (event.target === document.getElementById(`${j + 30}`)) {
         document.getElementById(`${j + 20}`).style.transform =
@@ -76,18 +76,18 @@ for (let j = 0; j < 8; j += 1) {
       conditions.numberOfStack = j;
       for (let i = 0; i < 8; i += 1) {
         document.getElementById(`${i}`).style.background = 'none';
-        document.getElementById(`${i}`).classList.remove('main_card');
+        document.getElementById(`${i}`).classList.remove('main-card');
         document.getElementById(`${i}`).innerHTML = `
-        <div class='flip_box'>
-          <div id='${i + 20}' class='flip_box_inner'>
-            <div class='flip_box_front'>
+        <div class='flip-box'>
+          <div id='${i + 20}' class='flip-box-inner'>
+            <div class='flip-box-front'>
               <img
 								id='${i + 40}'
 								style='width: 100%; height: 220px; margin: 0px'
 								src='assets/${cards[j + 1][i].image}'
 							>
-              <div id='${i + 50}' class='card_bottom'>
-								<div class='card_name'>${cards[j + 1][i].word}</div>
+              <div id='${i + 50}' class='card-bottom'>
+								<div class='card-name'>${cards[j + 1][i].word}</div>
 								<a
 									id='${i + 30}'
 									class='rotate'
@@ -99,12 +99,12 @@ for (let j = 0; j < 8; j += 1) {
 								></a>
 							</div>
             </div>
-            <div class='flip_box_back'>
+            <div class='flip-box-back'>
               <img style='width: 100%; height: 220px; margin: 0px' src='assets/${
                 cards[j + 1][i].image
               }'>
-              <div class='card_bottom'>
-								<div class='card_name'>${cards[j + 1][i].translation}</div>
+              <div class='card-bottom'>
+								<div class='card-name'>${cards[j + 1][i].translation}</div>
 							</div>
             </div>
           </div>
@@ -121,23 +121,23 @@ for (let j = 0; j < 8; j += 1) {
 //result
 const gameResult = document.createElement('div');
 gameResult.id = 'gameResult';
-gameResult.classList.add('game_result');
+gameResult.classList.add('game-result');
 gameResult.style.display = 'none';
 
 document.body.appendChild(gameResult);
 
 //create play game elements
 const divForGameButton = document.createElement('div');
-divForGameButton.classList.add('div_for_game_button');
+divForGameButton.classList.add('div-for-game-button');
 divForGameButton.id = 'divForGameButton';
 
 const startGameButton = document.createElement('button');
-startGameButton.classList.add('start_game_button');
+startGameButton.classList.add('start-game-button');
 startGameButton.id = 'startGameButton';
 startGameButton.innerHTML = 'START GAME';
 
 const repeatSoundButton = document.createElement('button');
-repeatSoundButton.classList.add('repeat_sound_button');
+repeatSoundButton.classList.add('repeat-sound-button');
 repeatSoundButton.style.display = 'none';
 repeatSoundButton.innerHTML =
   "<img style='width: 100%' src='./assets/img/repeat.svg'>";
@@ -197,9 +197,9 @@ startGameButton.addEventListener('click', function goGame() {
           soundHandler(`./assets/audio/correct.mp3`);
           gameRating.insertAdjacentHTML(
             'beforeend',
-            '<div class="star_win" style="background-image: url(assets/img/star-win.svg)"></div>'
+            '<div class="star-win" style="background-image: url(assets/img/star-win.svg)"></div>'
           );
-          document.getElementById(j).classList.add('not_active');
+          document.getElementById(j).classList.add('not-active');
           cardNumber += 1;
           if (cardNumber === 8) {
             if (conditions.arrayOfChoise.includes(false) === false) {
@@ -233,7 +233,7 @@ startGameButton.addEventListener('click', function goGame() {
           soundHandler(`./assets/audio/error.mp3`);
           gameRating.insertAdjacentHTML(
             'beforeend',
-            '<div class="star_lose" style="background-image: url(assets/img/star.svg)"></div>'
+            '<div class="star-lose" style="background-image: url(assets/img/star.svg)"></div>'
           );
         }
       });

@@ -8,11 +8,11 @@ main {
   margin: auto;
 }
 
-.main_card {
+.main-card {
   margin-left: 50px;
 }
 @media only screen and (min-width: 768px){
-  .main_card {
+  .main-card {
     width: 300px;
     height: 280px;
     border-radius: 15px;
@@ -32,11 +32,11 @@ main {
   }
 }
 
-.main_card:hover {
+.main-card:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,.6);
 }
 
-.main_card img {
+.main-card img {
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -45,7 +45,7 @@ main {
   margin: 30px auto;
 }
 
-.card_bottom {
+.card-bottom {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -63,7 +63,7 @@ main {
 }
 
 /* flip Box */
-.flip_box {
+.flip-box {
   background-color: transparent;
   perspective: 1000px;
   width: 320px;
@@ -80,7 +80,7 @@ main {
   transition: .3s;
 }
 
-.flip_box_inner {
+.flip-box-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -89,11 +89,11 @@ main {
   transform-style: preserve-3d;
 }
 
-.flip_box_inner:hover {
+.flip-box-inner:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,.4);
 }
 
-.flip_box_front, .flip_box_back {
+.flip-box-front, .flip-box-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -101,13 +101,13 @@ main {
   backface-visibility: hidden;
 }
 
-.flip_box_front {
+.flip-box-front {
   color: black;
   border-radius: 10px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
 
-.flip_box_back {
+.flip-box-back {
   color: black;
   transform: rotateY(180deg);
   border-radius: 10px;
@@ -115,13 +115,13 @@ main {
 }
 
 /* play Game */
-.div_for_game_button {
+.div-for-game-button {
   width: 100%;
   display: none;
   justify-content: center;
 }
 
-.start_game_button {
+.start-game-button {
   padding: 5px 15px;
   font-size: 22px;
   margin: 20px auto;
@@ -135,11 +135,11 @@ main {
   cursor: pointer;
 }
 
-.start_game_button:hover {
+.start-game-button:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,.4);
 }
 
-.repeat_sound_button {
+.repeat-sound-button {
   padding: 15px 15px;
   margin: 20px auto;
   font-size: 22px;
@@ -154,11 +154,11 @@ main {
   cursor: pointer;
 }
 
-.repeat_sound_button:hover {
+.repeat-sound-button:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,.4);
 }
 
-.game_rating {
+.game-rating {
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -171,7 +171,7 @@ main {
   color: #9b806c;
 }
 
-.not_active {
+.not-active {
    pointer-events: none;
    cursor: default;
    opacity: 0.5;
@@ -184,7 +184,7 @@ main {
 }
 
 /* result */
-.game_result {
+.game-result {
   width: 100%;
   padding-top: 100px;
   z-index: 3000;
@@ -192,7 +192,7 @@ main {
   align-items: center;
 }
 
-.star_win {
+.star-win {
   flex-shrink: 0;
   width: 40px;
   min-width: 40px;
@@ -200,7 +200,7 @@ main {
   background-size: 40px 40px;
 }
 
-.star_lose {
+.star-lose {
   flex-shrink: 0;
   width: 40px;
   min-width: 40px;
